@@ -21,7 +21,7 @@
   <entry>
     <title>learn-markdown</title>
     <url>/2020/05/15/learn-markdown/</url>
-    <content><![CDATA[<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Markdown是一种纯文本格式的标记语言。通过简单的标记语法，它可以使普通文本内容具有一定的格式。</p>
+    <content><![CDATA[<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>Markdown是一种纯文本格式的标记语言。通过简单的标记语法，它可以使普通文本内容具有一定的格式。</p>
 <h2 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># 这是一级标题</span><br><span class="line">## 这是二级标题</span><br><span class="line">### 这是三级标题</span><br><span class="line">#### 这是四级标题</span><br><span class="line">##### 这是五级标题</span><br><span class="line">###### 这是六级标题</span><br><span class="line"></span><br><span class="line">**这是加粗的文字**</span><br><span class="line">*这是倾斜的文字*&#96;</span><br><span class="line">***这是斜体加粗的文字***</span><br><span class="line">~~这是加删除线的文字~~</span><br><span class="line">&gt;这是引用的内容</span><br></pre></td></tr></table></figure>
 
 <h2 id="引入图片和链接"><a href="#引入图片和链接" class="headerlink" title="引入图片和链接"></a>引入图片和链接</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">![图片名称](图片地址)</span><br><span class="line">[链接名称](链接地址)</span><br></pre></td></tr></table></figure>
@@ -38,6 +38,56 @@
         <tag>markdown</tag>
         <tag>学习</tag>
         <tag>个人博客</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>美好 表白 短句 暗恋</title>
+    <url>/2020/05/20/essays/</url>
+    <content><![CDATA[<p><img src="/assets/images/essays.jpg" alt=""></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><a href="https://www.baidu.com/s?ie=UTF-8&wd=宋小君-下雨和见你" target="_blank" rel="noopener">世界上美好的东西不太多，立秋傍晚从河对岸吹来的风。</a></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">整句话是：</span><br><span class="line">世界上美好的东西不太多,立秋傍晚从河对岸吹来的风, 和二十来岁笑起来要人命的你。</span><br><span class="line">选自宋小君的《下雨和见你》</span><br></pre></td></tr></table></figure>
+
+<p><a href="https://www.baidu.com/s?ie=UTF-8&wd=爱丽丝梦游仙境" target="_blank" rel="noopener">你知道乌鸦为什么像写字台吗?</a></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">整句话是：</span><br><span class="line">爱丽丝:疯帽子,我喜欢你</span><br><span class="line">疯帽子:为什么</span><br><span class="line">爱丽丝：因为乌鸦长得像写字台</span><br><span class="line">疯帽子:为什么乌鸦长得像写字台</span><br><span class="line">爱丽丝:因为我喜欢你没有理由</span><br><span class="line">--《爱丽丝梦游仙境》</span><br></pre></td></tr></table></figure>
+
+<p><a href="https://www.baidu.com/s?ie=UTF-8&wd=聂鲁达-二十首情诗和一首绝望的歌" target="_blank" rel="noopener">你不像任何人</a></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">整句话是：</span><br><span class="line">你不像任何人，</span><br><span class="line">因为我爱你。</span><br><span class="line">--聂鲁达《二十首情诗和一首绝望的歌》</span><br></pre></td></tr></table></figure>
+
+<p><a href="https://www.baidu.com/s?ie=UTF-8&wd=沈从文-无题" target="_blank" rel="noopener">我如一张离了枝头日晒风吹的叶子,半死</a></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">整句话是：</span><br><span class="line">我如一张离了枝头日晒风吹的叶子,半死,</span><br><span class="line">但是你嘴唇可以使他润泽，还有你颈脖同额。</span><br><span class="line">--沈从文《无题》</span><br></pre></td></tr></table></figure>
+
+<p><a href="https://www.baidu.com/s?ie=UTF-8&wd=何三坡-山岗" target="_blank" rel="noopener">在清晨,在燕山上在万丈阳光里树叶里躲藏着锦鸡和百灵一阵风带走了闪烁的流水此刻，我愿意做一个没有理想的人</a></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">整句话是：</span><br><span class="line">在清晨,在燕山上</span><br><span class="line">在万丈阳光里</span><br><span class="line">树叶里躲藏着锦鸡和百灵</span><br><span class="line">一阵风带走了闪烁的流水</span><br><span class="line">此刻，我愿意做一个</span><br><span class="line">没有理想的人</span><br><span class="line">我愿意一直陪你坐到衰老</span><br><span class="line">像草木一样安静</span><br><span class="line">--何三坡《山岗》</span><br></pre></td></tr></table></figure>
+
+<p><a href="https://www.baidu.com/s?ie=UTF-8&wd=我为什么爱你，先生" target="_blank" rel="noopener">见到日出我便不能自己</a></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">整句话是：</span><br><span class="line">见到日出我便不能自己,</span><br><span class="line">而你就是日出,</span><br><span class="line">于是，所以，我爱你。</span><br><span class="line">--Emily Dckinso 《我为什么爱你，先生》节选</span><br></pre></td></tr></table></figure>
+
+<p><a href="https://www.baidu.com/s?ie=UTF-8&wd=村上春树-爱如夜半汽笛" target="_blank" rel="noopener">汽笛声的确微弱,听见没听见都分不清。</a></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">整句话是：</span><br><span class="line">汽笛声的确微弱,听见没听见都分不清。</span><br><span class="line">而我就像爱那汽笛一样爱你。</span><br><span class="line">--村上春树《爱如夜半汽笛》</span><br></pre></td></tr></table></figure>
+
+<p><a href="https://www.baidu.com/s?ie=UTF-8&wd=佩索阿-恋爱中的牧羊人" target="_blank" rel="noopener">明月高悬夜空,眼下是春天。</a></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">整句话是：</span><br><span class="line">明月高悬夜空,眼下是春天。</span><br><span class="line">我想起了你,内心是完整的。</span><br><span class="line">一股轻风穿过空旷的田野向我吹拂。</span><br><span class="line">我想起了你，轻唤你的名字。</span><br><span class="line">我不是我了：我很幸福。</span><br><span class="line">--佩索阿《恋爱中的牧羊人》节选</span><br></pre></td></tr></table></figure>
+
+<p><a href="https://www.baidu.com/s?ie=UTF-8&wd=罗伯特·勃菜-你手捧希望而来" target="_blank" rel="noopener">夜晚潮湿,地面潮湿，空气寂静,树林沉默。</a></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">整句话是：</span><br><span class="line">夜晚潮湿,地面潮湿</span><br><span class="line">空气寂静,树林沉默,</span><br><span class="line">今夜我爱你。</span><br><span class="line">--罗伯特·勃菜《你手捧希望而来》</span><br></pre></td></tr></table></figure>
+
+<p><a href="https://www.baidu.com/s?ie=UTF-8&wd=海子-夏天的太阳" target="_blank" rel="noopener">想和你一起走在街上，看看太阳。</a></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">整句话是：</span><br><span class="line">你来人间一趟</span><br><span class="line">你要看看太阳</span><br><span class="line">和你的心上人一起走在街上</span><br><span class="line">了解她</span><br><span class="line">也要了解太阳</span><br><span class="line">--海子《夏天的太阳》</span><br></pre></td></tr></table></figure>
+
+<p><a href="https://www.baidu.com/s?ie=UTF-8&wd=木苏里-某某" target="_blank" rel="noopener">希望你被簇拥包围，你走的路要繁华盛开，要人声鼎沸。</a></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">整句话是：</span><br><span class="line">我喜欢你，</span><br><span class="line">所以希望你被簇拥包围，</span><br><span class="line">所以你走的路要繁花盛开，要人声鼎沸。</span><br><span class="line">--木苏里《某某》</span><br></pre></td></tr></table></figure>
+
+<p><a href="https://www.baidu.com/s?ie=UTF-8&wd=沈从文-月下小景" target="_blank" rel="noopener">龙应该藏在云里。</a></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">整句话是：</span><br><span class="line">龙应该藏在云里，</span><br><span class="line">你应该藏在心里。</span><br><span class="line">--沈从文《月下小景》</span><br></pre></td></tr></table></figure>
+
+<p><a href="https://www.baidu.com/s?ie=UTF-8&wd=张嘉佳-摆渡人" target="_blank" rel="noopener">我愿做个逗号，</a></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">整句话是：</span><br><span class="line">世事如书，我偏爱你这一句，</span><br><span class="line">愿做个逗号，待在你脚边。</span><br><span class="line">--张嘉佳《摆渡人》</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>essays</category>
+      </categories>
+      <tags>
+        <tag>随笔</tag>
+        <tag>摘抄</tag>
       </tags>
   </entry>
 </search>
