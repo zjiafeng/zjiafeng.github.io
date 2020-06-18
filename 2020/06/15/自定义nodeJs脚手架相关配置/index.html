@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/head_pt.jpg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/head_pt.jpg">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/head_pt.jpg">
+  <link rel="mask-icon" href="/assets/images/head_pt.jpg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; 自定义nodeJs脚手架相关配置1、引入所需模块(模块版本默认最新) cnpm isntall12345678910&quot;art-template&quot;: &quot;^4.13.2&quot;,&quot;koa&quot;: &quot;^2.12.0&quot;,&quot;koa-art-template">
+<meta property="og:type" content="article">
+<meta property="og:title" content="自定义nodeJs脚手架相关配置">
+<meta property="og:url" content="http://yoursite.com/2020/06/15/%E8%87%AA%E5%AE%9A%E4%B9%89nodeJs%E8%84%9A%E6%89%8B%E6%9E%B6%E7%9B%B8%E5%85%B3%E9%85%8D%E7%BD%AE/index.html">
+<meta property="og:site_name" content="Orange-blog">
+<meta property="og:description" content="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; 自定义nodeJs脚手架相关配置1、引入所需模块(模块版本默认最新) cnpm isntall12345678910&quot;art-template&quot;: &quot;^4.13.2&quot;,&quot;koa&quot;: &quot;^2.12.0&quot;,&quot;koa-art-template">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-06-15T12:24:52.000Z">
+<meta property="article:modified_time" content="2020-06-15T12:28:42.922Z">
+<meta property="article:author" content="Orange-blog">
+<meta property="article:tag" content="web">
+<meta property="article:tag" content="nodeJs">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://yoursite.com/2020/06/15/%E8%87%AA%E5%AE%9A%E4%B9%89nodeJs%E8%84%9A%E6%89%8B%E6%9E%B6%E7%9B%B8%E5%85%B3%E9%85%8D%E7%BD%AE/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>自定义nodeJs脚手架相关配置 | Orange-blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+  <!--pjax：防止跳转页面音乐暂停-->
+  <script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.js"></script>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Orange-blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/06/15/%E8%87%AA%E5%AE%9A%E4%B9%89nodeJs%E8%84%9A%E6%89%8B%E6%9E%B6%E7%9B%B8%E5%85%B3%E9%85%8D%E7%BD%AE/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/assets/images/head_pt.jpg">
+      <meta itemprop="name" content="Orange-blog">
+      <meta itemprop="description" content="人生海海，山山而川。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Orange-blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          自定义nodeJs脚手架相关配置
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-06-15 20:24:52 / 修改时间：20:28:42" itemprop="dateCreated datePublished" datetime="2020-06-15T20:24:52+08:00">2020-06-15</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/nodeJs-web/" itemprop="url" rel="index"><span itemprop="name">nodeJs web</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/06/15/%E8%87%AA%E5%AE%9A%E4%B9%89nodeJs%E8%84%9A%E6%89%8B%E6%9E%B6%E7%9B%B8%E5%85%B3%E9%85%8D%E7%BD%AE/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/06/15/%E8%87%AA%E5%AE%9A%E4%B9%89nodeJs%E8%84%9A%E6%89%8B%E6%9E%B6%E7%9B%B8%E5%85%B3%E9%85%8D%E7%BD%AE/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>2.9k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>3 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+
+      
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+<h2 id="自定义nodeJs脚手架相关配置"><a href="#自定义nodeJs脚手架相关配置" class="headerlink" title="自定义nodeJs脚手架相关配置"></a>自定义nodeJs脚手架相关配置</h2><h3 id="1、引入所需模块-模块版本默认最新-cnpm-isntall"><a href="#1、引入所需模块-模块版本默认最新-cnpm-isntall" class="headerlink" title="1、引入所需模块(模块版本默认最新) cnpm isntall"></a>1、引入所需模块(模块版本默认最新) cnpm isntall</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&quot;art-template&quot;: &quot;^4.13.2&quot;,</span><br><span class="line">&quot;koa&quot;: &quot;^2.12.0&quot;,</span><br><span class="line">&quot;koa-art-template&quot;: &quot;^1.1.1&quot;,</span><br><span class="line">&quot;koa-bodyparser&quot;: &quot;^4.3.0&quot;,</span><br><span class="line">&quot;koa-router&quot;: &quot;^9.0.1&quot;,</span><br><span class="line">&quot;koa-session&quot;: &quot;^6.0.0&quot;,</span><br><span class="line">&quot;koa-static&quot;: &quot;^5.0.0&quot;,</span><br><span class="line">&quot;md5&quot;: &quot;^2.2.1&quot;,</span><br><span class="line">&quot;mongodb&quot;: &quot;^3.5.9&quot;,</span><br><span class="line">&quot;svg-captcha&quot;: &quot;^1.4.0&quot;</span><br></pre></td></tr></table></figure>
+
+<h3 id="2、新建入口文件-配置各个模块"><a href="#2、新建入口文件-配置各个模块" class="headerlink" title="2、新建入口文件 配置各个模块"></a>2、新建入口文件 配置各个模块</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;**引入所需模块 *&#x2F;</span><br><span class="line">const Koa &#x3D; require(&#39;koa&#39;),</span><br><span class="line">    Router &#x3D; require(&#39;koa-router&#39;),</span><br><span class="line">    render &#x3D; require(&#39;koa-art-template&#39;),</span><br><span class="line">    path &#x3D; require(&#39;path&#39;),</span><br><span class="line">    svgCaptcha &#x3D; require(&#39;svg-captcha&#39;),</span><br><span class="line">    session &#x3D; require(&#39;koa-session&#39;),</span><br><span class="line">    bodyParser &#x3D; require(&#39;koa-bodyparser&#39;),</span><br><span class="line">    serve &#x3D; require(&#39;koa-static&#39;);</span><br><span class="line"></span><br><span class="line">&#x2F;**实例化 *&#x2F;</span><br><span class="line">const app &#x3D; new Koa();</span><br><span class="line">const router &#x3D; new Router();</span><br><span class="line"></span><br><span class="line">const CONFIG &#x3D; &#123; &#x2F;&#x2F;配置session参数</span><br><span class="line">    key: &#39;koa.sess&#39;, &#x2F;** 默认*&#x2F;</span><br><span class="line">    maxAge: 864000, &#x2F;** cookie过期时间 *&#x2F;</span><br><span class="line">    autoCommit: true, &#x2F;** (boolean) automatically commit headers (default true) *&#x2F;</span><br><span class="line">    overwrite: true, &#x2F;** (boolean) can overwrite or not (default true) *&#x2F;</span><br><span class="line">    httpOnly: true, &#x2F;** (boolean) httpOnly or not (default true) *&#x2F;</span><br><span class="line">    signed: true, &#x2F;** (boolean) signed or not (default true) *&#x2F;</span><br><span class="line">    rolling: true, &#x2F;** 在每次请求时强行设置 cookie，这将重置 cookie 过期时间（默认：false） *&#x2F;</span><br><span class="line">    renew: false, &#x2F;** (boolean) renew session when session is nearly expired, so we can always keep user logged in. (default is false)*&#x2F;</span><br><span class="line">    secure: false, &#x2F;** 设置为true，则只应通过被 HTTPS 协议加密过的请求发送给服务端 (boolean) secure cookie*&#x2F;</span><br><span class="line">    sameSite: null, &#x2F;** (string) session cookie sameSite options (default null, don&#39;t set it) *&#x2F;</span><br><span class="line">&#125;;</span><br><span class="line">&#x2F;&#x2F; 配置koa-art-template 模板引擎</span><br><span class="line">render(app, &#123;</span><br><span class="line">    root: path.join(__dirname, &#39;views&#39;), &#x2F;&#x2F; 模板引擎位置</span><br><span class="line">    extname: &#39;.html&#39;, &#x2F;&#x2F; 文件后缀名</span><br><span class="line">    debug: process.env.NODE_ENV !&#x3D;&#x3D; &#39;production&#39; &#x2F;&#x2F;是否开启调试模式</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;引入子模块</span><br><span class="line">var admin&#x3D;require(&#39;.&#x2F;routes&#x2F;admin.js&#39;);</span><br><span class="line">var api&#x3D;require(&#39;.&#x2F;routes&#x2F;api.js&#39;);</span><br><span class="line">var index&#x3D;require(&#39;.&#x2F;routes&#x2F;index.js&#39;);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;配置路由</span><br><span class="line">router.use(&#39;&#x2F;admin&#39;,admin);</span><br><span class="line">router.use(&#39;&#x2F;api&#39;,api);   &#x2F;*在模块里面暴露路由并且启动路由*&#x2F;</span><br><span class="line">router.use(index);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 路由中间件 (拦截)</span><br><span class="line">app.use(async (ctx, next) &#x3D;&gt; &#123;</span><br><span class="line">    await next();</span><br><span class="line">    if (ctx.status &#x3D;&#x3D; 404) &#123;</span><br><span class="line">        ctx.body &#x3D; &#39;这是个404页面&#39;</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">        &#x2F;&#x2F; console.log(ctx.url)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">app.use(bodyParser()); &#x2F;&#x2F; 必须放到启动路由前调用</span><br><span class="line">app.use(serve(__dirname + &#39;&#x2F;public&#39;)); &#x2F;&#x2F;启动koa-static</span><br><span class="line">app.keys &#x3D; [&#39;some secret hurr&#39;]; &#x2F;**作为cookies签名时的秘钥*&#x2F;</span><br><span class="line">app.use(session(CONFIG, app)); &#x2F;&#x2F;启动session</span><br><span class="line">app.use(router.routes()).use(router.allowedMethods()); &#x2F;&#x2F;启动路由 必须放在其他模块后</span><br><span class="line">app.listen(3000);</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/web/" rel="tag"># web</a>
+              <a href="/tags/nodeJs/" rel="tag"># nodeJs</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/06/15/nodeJs%E5%B0%81%E8%A3%85Mongodb%E6%95%B0%E6%8D%AE%E5%BA%93%E5%AE%9E%E7%8E%B0%E5%A2%9E%E5%88%A0%E6%94%B9%E6%9F%A5/" rel="prev" title="nodeJs封装Mongodb数据库实现增删改查">
+      <i class="fa fa-chevron-left"></i> nodeJs封装Mongodb数据库实现增删改查
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/06/18/node-koa%E6%9C%8D%E5%8A%A1%E7%AB%AF%E7%9B%B8%E5%85%B3%E9%85%8D%E7%BD%AE/" rel="next" title="node+koa服务端相关配置">
+      node+koa服务端相关配置 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#自定义nodeJs脚手架相关配置"><span class="nav-number">1.</span> <span class="nav-text">自定义nodeJs脚手架相关配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1、引入所需模块-模块版本默认最新-cnpm-isntall"><span class="nav-number">1.1.</span> <span class="nav-text">1、引入所需模块(模块版本默认最新) cnpm isntall</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2、新建入口文件-配置各个模块"><span class="nav-number">1.2.</span> <span class="nav-text">2、新建入口文件 配置各个模块</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Orange-blog"
+      src="/assets/images/head_pt.jpg">
+  <p class="site-author-name" itemprop="name">Orange-blog</p>
+  <div class="site-description" itemprop="description">人生海海，山山而川。</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">11</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/zjiafeng" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;zjiafeng" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:13835921725@163.com" title="E-Mail → mailto:13835921725@163.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+      百度
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://www.baidu.com/" title="https:&#x2F;&#x2F;www.baidu.com" rel="noopener" target="_blank">Title</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+    <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=1305327223&auto=0&height=66"></iframe>
+    </div>
+    
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Orange-blog</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="站点总字数">28k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">26 分钟</span>
+</div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : false,
+      appId      : 'Gx7P0QeLmfBwVRf4zgsDwFL9-gzGzoHsz',
+      appKey     : 'FSeSowerdcVd35cnngN8ACIa',
+      placeholder: "Just go go",
+      avatar     : '/assets/images/head_pt.jpg',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : false,
+      lang       : '' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+  <!-- 页面背景桃花 --> <script type="text/javascript" src="/lib/sakura.js"></script>
+</body>
+</html>
