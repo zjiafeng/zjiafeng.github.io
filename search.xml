@@ -1,6 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Mongodb数据库基础操作、创建删除、数据增删改查</title>
+    <url>/2020/06/05/Mongodb%E6%95%B0%E6%8D%AE%E5%BA%93%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C%E3%80%81%E5%88%9B%E5%BB%BA%E5%88%A0%E9%99%A4%E3%80%81%E6%95%B0%E6%8D%AE%E5%A2%9E%E5%88%A0%E6%94%B9%E6%9F%A5/</url>
+    <content><![CDATA[<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+<h2 id="Mongodb数据库基础操作"><a href="#Mongodb数据库基础操作" class="headerlink" title="Mongodb数据库基础操作"></a>Mongodb数据库基础操作</h2><h3 id="启动mongodb数据库"><a href="#启动mongodb数据库" class="headerlink" title="启动mongodb数据库"></a>启动mongodb数据库</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">mongod --dbpath mongodb数据库目录</span><br></pre></td></tr></table></figure>
+
+<h3 id="进入mongodb语法环境、进行mongdb数据库的相关操作"><a href="#进入mongodb语法环境、进行mongdb数据库的相关操作" class="headerlink" title="进入mongodb语法环境、进行mongdb数据库的相关操作"></a>进入mongodb语法环境、进行mongdb数据库的相关操作</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">win+R &gt; mongo 或者</span><br><span class="line">win+R &gt; mongo 127.0.0.1:27017</span><br></pre></td></tr></table></figure>
+
+<h3 id="查看所有数据库："><a href="#查看所有数据库：" class="headerlink" title="查看所有数据库："></a>查看所有数据库：</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">show dbs</span><br></pre></td></tr></table></figure>
+
+<h3 id="查看当前所在数据库"><a href="#查看当前所在数据库" class="headerlink" title="查看当前所在数据库:"></a>查看当前所在数据库:</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">db</span><br></pre></td></tr></table></figure>
+
+<h3 id="查看当前所在数据库中所有集合："><a href="#查看当前所在数据库中所有集合：" class="headerlink" title="查看当前所在数据库中所有集合："></a>查看当前所在数据库中所有集合：</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">show collections</span><br></pre></td></tr></table></figure>
+
+<h3 id="查看当前数据库相关信息（名称、文档个数、视图、索引、大小等）"><a href="#查看当前数据库相关信息（名称、文档个数、视图、索引、大小等）" class="headerlink" title="查看当前数据库相关信息（名称、文档个数、视图、索引、大小等）:"></a>查看当前数据库相关信息（名称、文档个数、视图、索引、大小等）:</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">db.stats()</span><br></pre></td></tr></table></figure>
+
+<h3 id="创建、打开、切换-数据库："><a href="#创建、打开、切换-数据库：" class="headerlink" title="创建、打开、切换 数据库："></a>创建、打开、切换 数据库：</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">use 数据库名称</span><br><span class="line">use 这个命令很特殊，它具有打开、 切换、 创建数据库的功能：如果打开的这个数据库存在就是打开这个数据库。如果打开的是一个不存在的数据库，那么就会创建一个同名的数据库，并且插入一条数据（这样这个数据库才算创建成功）。</span><br><span class="line">db.user.insert(&#123;&quot;name&quot;: &quot;xiaoming&quot;&#125;)</span><br></pre></td></tr></table></figure>
+
+<h3 id="删除当前数据库"><a href="#删除当前数据库" class="headerlink" title="删除当前数据库"></a>删除当前数据库</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">db.dropDatabase()</span><br></pre></td></tr></table></figure>
+
+<h3 id="删除集合"><a href="#删除集合" class="headerlink" title="删除集合"></a>删除集合</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">db.集合名称.drop()</span><br></pre></td></tr></table></figure>
+
+<h3 id="清屏"><a href="#清屏" class="headerlink" title="清屏"></a>清屏</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cls</span><br></pre></td></tr></table></figure>
+
+<h2 id="Mongodb数据相关操作、创建删除、数据增删改查…"><a href="#Mongodb数据相关操作、创建删除、数据增删改查…" class="headerlink" title="Mongodb数据相关操作、创建删除、数据增删改查…"></a>Mongodb数据相关操作、创建删除、数据增删改查…</h2><h3 id="插入（增加）数据"><a href="#插入（增加）数据" class="headerlink" title="插入（增加）数据"></a>插入（增加）数据</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">db.集合名称.insert(&#123;name:&quot;zhangsan&quot;&#125;)</span><br></pre></td></tr></table></figure>
+
+<h3 id="删除数据"><a href="#删除数据" class="headerlink" title="删除数据"></a>删除数据</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">db.集合名称.remove(&#123;name:&quot;zhangsan&quot;&#125;)</span><br><span class="line">默认情况下，remove()方法将删除所有符合删除条件的文档。 使用开启justOne选项将删除操作限制为仅匹配文档之一。</span><br><span class="line">db.集合名称.remove(&#123;name:&quot;zhangsan&quot;&#125;,&#123; justOne: true &#125;)</span><br></pre></td></tr></table></figure>
+
+<h3 id="修改数据"><a href="#修改数据" class="headerlink" title="修改数据"></a>修改数据</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">查找名字叫做小明的，把年龄更改为16岁：</span><br><span class="line">db.student.update(&#123;&quot;name&quot;:&quot;小明&quot;&#125;,&#123;$set:&#123;&quot;age&quot;:16&#125;&#125;);</span><br><span class="line">查找数学成绩是70，把年龄更改为33岁：</span><br><span class="line">db.student.update(&#123;&quot;score.shuxue&quot;:70&#125;,&#123;$set:&#123;&quot;age&quot;:33&#125;&#125;);</span><br><span class="line">更改所有匹配项【默认情况下，update()方法是更新单个文档。 要更新多个文档，请使用开启update()方法中的multi选项】。</span><br><span class="line">db.student.update(&#123;&quot;sex&quot;:&quot;男&quot;&#125;,&#123;$set:&#123;&quot;age&quot;:33&#125;&#125;,&#123;multi: true&#125;);</span><br><span class="line">完整替换，不出现$set关键字了：</span><br><span class="line">db.student.update(&#123;&quot;name&quot;:&quot;小明&quot;&#125;,&#123;&quot;name&quot;:&quot;大明&quot;,&quot;age&quot;:16&#125;);</span><br></pre></td></tr></table></figure>
+
+<h3 id="查找数据"><a href="#查找数据" class="headerlink" title="查找数据"></a>查找数据</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1、查询所有记录 </span><br><span class="line">db.collections.find();</span><br><span class="line">2、查询去掉后的当前聚集集合中的某列的重复数据 </span><br><span class="line">db.collections.distinct(&quot;name&quot;);</span><br><span class="line">3、查询 age &#x3D; 22 的记录 </span><br><span class="line">db.collections.find(&#123;age:22&#125;);</span><br><span class="line">4、查询 age &gt; 22 的记录</span><br><span class="line">db.collections.find(&#123;age:&#123;$gt:22&#125;&#125;);</span><br><span class="line">5、查询 age &lt; 22 的记录</span><br><span class="line">db.collections.find(&#123;age:&#123;$lt:22&#125;&#125;);</span><br><span class="line">6、查询 age &gt;&#x3D; 25 的记录 </span><br><span class="line">db.collections.find(&#123;age:&#123;$gte:22&#125;&#125;);</span><br><span class="line">7、查询 age &lt;&#x3D; 25 的记录 </span><br><span class="line">db.collections.find(&#123;age:&#123;$lte:25&#125;&#125;);</span><br><span class="line">8、查询 age &gt;&#x3D; 23 并且 age &lt;&#x3D; 26</span><br><span class="line">db.collections.find(&#123;age: &#123;$gte: 23, $lte: 26&#125;&#125;); </span><br><span class="line">9、查询 name 中包含 mongo 的数据       模糊查询用于搜索 </span><br><span class="line">db.userInfo.find(&#123;name: &#x2F;mongo&#x2F;&#125;); </span><br><span class="line">10、查询 name 中以 mongo 开头的 </span><br><span class="line">db.userInfo.find(&#123;name: &#x2F;^mongo&#x2F;&#125;); </span><br><span class="line">11、查询指定列 name、age 数据 </span><br><span class="line">db.userInfo.find(&#123;&#125;, &#123;name: 1, age: 1&#125;); </span><br><span class="line">12、查询指定列 name、age 数据, age &gt; 25 </span><br><span class="line">db.userInfo.find(&#123;age: &#123;$gt: 25&#125;&#125;, &#123;name: 1, age: 1&#125;); </span><br><span class="line">13、按照年龄排序    1 升序    -1 降序 </span><br><span class="line">升序：db.userInfo.find().sort(&#123;age: 1&#125;); </span><br><span class="line">降序：db.userInfo.find().sort(&#123;age: -1&#125;); </span><br><span class="line">14、查询 name &#x3D; zhangsan, age &#x3D; 22 的数据 </span><br><span class="line">db.userInfo.find(&#123;name: &#39;zhangsan&#39;, age: 22&#125;); </span><br><span class="line">15、查询前 5 条数据 </span><br><span class="line">db.userInfo.find().limit(5); </span><br><span class="line">16、查询 10 条以后的数据 </span><br><span class="line">db.userInfo.find().skip(10); </span><br><span class="line">17、查询在 5-10 之间的数据 </span><br><span class="line">db.userInfo.find().limit(10).skip(5); </span><br><span class="line">18、or 与 查询 </span><br><span class="line">db.userInfo.find(&#123;$or: [&#123;age: 22&#125;, &#123;age: 25&#125;]&#125;); </span><br><span class="line">19、findOne 查询第一条数据 </span><br><span class="line">db.userInfo.findOne(); </span><br><span class="line">20、查询某个结果集的记录条数   统计数量 </span><br><span class="line">db.userInfo.find(&#123;age: &#123;$gte: 25&#125;&#125;).count(); </span><br><span class="line">如果要返回限制之后的记录数量，要使用 count(true)或者 count(非 0)  </span><br><span class="line">db.users.find().skip(10).limit(5).count(true);</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>Mongodb web</category>
+      </categories>
+      <tags>
+        <tag>Mongodb</tag>
+        <tag>web</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>es5、es6、类、继承、单例模式</title>
     <url>/2020/03/12/es5%E3%80%81es6%E3%80%81%E7%B1%BB%E3%80%81%E7%BB%A7%E6%89%BF%E3%80%81%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/</url>
     <content><![CDATA[<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
@@ -19,10 +58,64 @@
         <category>es6 js web 前端</category>
       </categories>
       <tags>
+        <tag>web</tag>
         <tag>es6</tag>
         <tag>js</tag>
-        <tag>web</tag>
         <tag>前端</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Mongodb数据库索引、explain使用</title>
+    <url>/2020/06/06/Mongodb%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B4%A2%E5%BC%95%E3%80%81explain%E4%BD%BF%E7%94%A8/</url>
+    <content><![CDATA[<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+<h2 id="Mongodb索引及explain使用-作用：在数据库查询数据速度更快"><a href="#Mongodb索引及explain使用-作用：在数据库查询数据速度更快" class="headerlink" title="Mongodb索引及explain使用 作用：在数据库查询数据速度更快"></a>Mongodb索引及explain使用 作用：在数据库查询数据速度更快</h2><h3 id="获取当前集合的索引"><a href="#获取当前集合的索引" class="headerlink" title="获取当前集合的索引"></a>获取当前集合的索引</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">db.collections.getIndexes()</span><br></pre></td></tr></table></figure>
+
+<h3 id="为当前集合对象创建索引的命令"><a href="#为当前集合对象创建索引的命令" class="headerlink" title="为当前集合对象创建索引的命令"></a>为当前集合对象创建索引的命令</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">db.collections.ensureIndex(&#123;name:1&#125;)</span><br></pre></td></tr></table></figure>
+
+<h3 id="删除当前集合对象索引的命令"><a href="#删除当前集合对象索引的命令" class="headerlink" title="删除当前集合对象索引的命令"></a>删除当前集合对象索引的命令</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">db.collections.dropIndex(&#123;name:1&#125;)</span><br></pre></td></tr></table></figure>
+
+<h3 id="使用explain-executionStats查询具体的-查询时间"><a href="#使用explain-executionStats查询具体的-查询时间" class="headerlink" title="使用explain executionStats查询具体的 查询时间"></a>使用explain executionStats查询具体的 查询时间</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">db.collections.find().explain(&quot;executionStats&quot;)</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>Mongodb web</category>
+      </categories>
+      <tags>
+        <tag>Mongodb</tag>
+        <tag>web</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>js中!和!!的区别及用法</title>
+    <url>/2020/06/02/js/</url>
+    <content><![CDATA[<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+<h2 id="！可将变量转换成boolean类型，null、undefined和空字符串取反都为false，其余都为true。"><a href="#！可将变量转换成boolean类型，null、undefined和空字符串取反都为false，其余都为true。" class="headerlink" title="！可将变量转换成boolean类型，null、undefined和空字符串取反都为false，其余都为true。"></a>！可将变量转换成boolean类型，null、undefined和空字符串取反都为false，其余都为true。</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">!null&#x3D;true</span><br><span class="line">!undefined&#x3D;true</span><br><span class="line">!&#39;&#39;&#x3D;true</span><br><span class="line">!100&#x3D;false</span><br><span class="line">!&#39;abc&#39;&#x3D;false</span><br></pre></td></tr></table></figure>
+
+<h2 id="！！常常用来做类型判断，判断变量a为非空，未定义或者非空串才能执行方法体的内容"><a href="#！！常常用来做类型判断，判断变量a为非空，未定义或者非空串才能执行方法体的内容" class="headerlink" title="！！常常用来做类型判断，判断变量a为非空，未定义或者非空串才能执行方法体的内容"></a>！！常常用来做类型判断，判断变量a为非空，未定义或者非空串才能执行方法体的内容</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var a;</span><br><span class="line">if(a!&#x3D;null &amp;&amp; typeof(a)!&#x3D;undefined &amp;&amp; a!&#x3D;&#39;&#39;)&#123;</span><br><span class="line">    &#x2F;&#x2F;a有内容才执行的代码  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="可简写为"><a href="#可简写为" class="headerlink" title="可简写为"></a>可简写为</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">if(!!a)&#123;</span><br><span class="line">    &#x2F;&#x2F;a有内容才执行的代码  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>js web</category>
+      </categories>
+      <tags>
+        <tag>web</tag>
+        <tag>js</tag>
+        <tag>前端</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>hexo使用vscode编写乱码记录</title>
+    <url>/2020/06/05/hexo%E4%BD%BF%E7%94%A8vscode%E7%BC%96%E5%86%99%E4%B9%B1%E7%A0%81%E8%AE%B0%E5%BD%95/</url>
+    <content><![CDATA[<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+<h2 id="前两天使用hexo记录一篇博客，打开后出现乱码的问题，记录下解决方法。"><a href="#前两天使用hexo记录一篇博客，打开后出现乱码的问题，记录下解决方法。" class="headerlink" title="前两天使用hexo记录一篇博客，打开后出现乱码的问题，记录下解决方法。"></a>前两天使用hexo记录一篇博客，打开后出现乱码的问题，记录下解决方法。</h2><ol>
+<li>将文件目录下的 _config.yml 保存为utf-8格式(或者unicode格式)</li>
+<li>将 新添加的md文件也保存为utf-8 格式(或者Unicode 格式)</li>
+<li>重新启动hexo clean &amp;&amp; hexo generate &amp;&amp; hexo s</li>
+</ol>
+]]></content>
+      <categories>
+        <category>hexo, vscode</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+        <tag>vscode</tag>
       </tags>
   </entry>
   <entry>
@@ -76,112 +169,6 @@
       </tags>
   </entry>
   <entry>
-    <title>js中!和!!的区别及用法</title>
-    <url>/2020/06/02/js/</url>
-    <content><![CDATA[<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
-<h2 id="！可将变量转换成boolean类型，null、undefined和空字符串取反都为false，其余都为true。"><a href="#！可将变量转换成boolean类型，null、undefined和空字符串取反都为false，其余都为true。" class="headerlink" title="！可将变量转换成boolean类型，null、undefined和空字符串取反都为false，其余都为true。"></a>！可将变量转换成boolean类型，null、undefined和空字符串取反都为false，其余都为true。</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">!null&#x3D;true</span><br><span class="line">!undefined&#x3D;true</span><br><span class="line">!&#39;&#39;&#x3D;true</span><br><span class="line">!100&#x3D;false</span><br><span class="line">!&#39;abc&#39;&#x3D;false</span><br></pre></td></tr></table></figure>
-
-<h2 id="！！常常用来做类型判断，判断变量a为非空，未定义或者非空串才能执行方法体的内容"><a href="#！！常常用来做类型判断，判断变量a为非空，未定义或者非空串才能执行方法体的内容" class="headerlink" title="！！常常用来做类型判断，判断变量a为非空，未定义或者非空串才能执行方法体的内容"></a>！！常常用来做类型判断，判断变量a为非空，未定义或者非空串才能执行方法体的内容</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var a;</span><br><span class="line">if(a!&#x3D;null &amp;&amp; typeof(a)!&#x3D;undefined &amp;&amp; a!&#x3D;&#39;&#39;)&#123;</span><br><span class="line">    &#x2F;&#x2F;a有内容才执行的代码  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="可简写为"><a href="#可简写为" class="headerlink" title="可简写为"></a>可简写为</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">if(!!a)&#123;</span><br><span class="line">    &#x2F;&#x2F;a有内容才执行的代码  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>js web</category>
-      </categories>
-      <tags>
-        <tag>js</tag>
-        <tag>web</tag>
-        <tag>前端</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Mongodb数据库基础操作、创建删除、数据增删改查</title>
-    <url>/2020/06/05/Mongodb%E6%95%B0%E6%8D%AE%E5%BA%93%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C%E3%80%81%E5%88%9B%E5%BB%BA%E5%88%A0%E9%99%A4%E3%80%81%E6%95%B0%E6%8D%AE%E5%A2%9E%E5%88%A0%E6%94%B9%E6%9F%A5/</url>
-    <content><![CDATA[<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
-<h2 id="Mongodb数据库基础操作"><a href="#Mongodb数据库基础操作" class="headerlink" title="Mongodb数据库基础操作"></a>Mongodb数据库基础操作</h2><h3 id="启动mongodb数据库"><a href="#启动mongodb数据库" class="headerlink" title="启动mongodb数据库"></a>启动mongodb数据库</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">mongod --dbpath mongodb数据库目录</span><br></pre></td></tr></table></figure>
-
-<h3 id="进入mongodb语法环境、进行mongdb数据库的相关操作"><a href="#进入mongodb语法环境、进行mongdb数据库的相关操作" class="headerlink" title="进入mongodb语法环境、进行mongdb数据库的相关操作"></a>进入mongodb语法环境、进行mongdb数据库的相关操作</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">win+R &gt; mongo 或者</span><br><span class="line">win+R &gt; mongo 127.0.0.1:27017</span><br></pre></td></tr></table></figure>
-
-<h3 id="查看所有数据库："><a href="#查看所有数据库：" class="headerlink" title="查看所有数据库："></a>查看所有数据库：</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">show dbs</span><br></pre></td></tr></table></figure>
-
-<h3 id="查看当前所在数据库"><a href="#查看当前所在数据库" class="headerlink" title="查看当前所在数据库:"></a>查看当前所在数据库:</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">db</span><br></pre></td></tr></table></figure>
-
-<h3 id="查看当前所在数据库中所有集合："><a href="#查看当前所在数据库中所有集合：" class="headerlink" title="查看当前所在数据库中所有集合："></a>查看当前所在数据库中所有集合：</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">show collections</span><br></pre></td></tr></table></figure>
-
-<h3 id="查看当前数据库相关信息（名称、文档个数、视图、索引、大小等）"><a href="#查看当前数据库相关信息（名称、文档个数、视图、索引、大小等）" class="headerlink" title="查看当前数据库相关信息（名称、文档个数、视图、索引、大小等）:"></a>查看当前数据库相关信息（名称、文档个数、视图、索引、大小等）:</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">db.stats()</span><br></pre></td></tr></table></figure>
-
-<h3 id="创建、打开、切换-数据库："><a href="#创建、打开、切换-数据库：" class="headerlink" title="创建、打开、切换 数据库："></a>创建、打开、切换 数据库：</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">use 数据库名称</span><br><span class="line">use 这个命令很特殊，它具有打开、 切换、 创建数据库的功能：如果打开的这个数据库存在就是打开这个数据库。如果打开的是一个不存在的数据库，那么就会创建一个同名的数据库，并且插入一条数据（这样这个数据库才算创建成功）。</span><br><span class="line">db.user.insert(&#123;&quot;name&quot;: &quot;xiaoming&quot;&#125;)</span><br></pre></td></tr></table></figure>
-
-<h3 id="删除当前数据库"><a href="#删除当前数据库" class="headerlink" title="删除当前数据库"></a>删除当前数据库</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">db.dropDatabase()</span><br></pre></td></tr></table></figure>
-
-<h3 id="删除集合"><a href="#删除集合" class="headerlink" title="删除集合"></a>删除集合</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">db.集合名称.drop()</span><br></pre></td></tr></table></figure>
-
-<h3 id="清屏"><a href="#清屏" class="headerlink" title="清屏"></a>清屏</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cls</span><br></pre></td></tr></table></figure>
-
-<h2 id="Mongodb数据相关操作、创建删除、数据增删改查…"><a href="#Mongodb数据相关操作、创建删除、数据增删改查…" class="headerlink" title="Mongodb数据相关操作、创建删除、数据增删改查…"></a>Mongodb数据相关操作、创建删除、数据增删改查…</h2><h3 id="插入（增加）数据"><a href="#插入（增加）数据" class="headerlink" title="插入（增加）数据"></a>插入（增加）数据</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">db.集合名称.insert(&#123;name:&quot;zhangsan&quot;&#125;)</span><br></pre></td></tr></table></figure>
-
-<h3 id="删除数据"><a href="#删除数据" class="headerlink" title="删除数据"></a>删除数据</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">db.集合名称.remove(&#123;name:&quot;zhangsan&quot;&#125;)</span><br><span class="line">默认情况下，remove()方法将删除所有符合删除条件的文档。 使用开启justOne选项将删除操作限制为仅匹配文档之一。</span><br><span class="line">db.集合名称.remove(&#123;name:&quot;zhangsan&quot;&#125;,&#123; justOne: true &#125;)</span><br></pre></td></tr></table></figure>
-
-<h3 id="修改数据"><a href="#修改数据" class="headerlink" title="修改数据"></a>修改数据</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">查找名字叫做小明的，把年龄更改为16岁：</span><br><span class="line">db.student.update(&#123;&quot;name&quot;:&quot;小明&quot;&#125;,&#123;$set:&#123;&quot;age&quot;:16&#125;&#125;);</span><br><span class="line">查找数学成绩是70，把年龄更改为33岁：</span><br><span class="line">db.student.update(&#123;&quot;score.shuxue&quot;:70&#125;,&#123;$set:&#123;&quot;age&quot;:33&#125;&#125;);</span><br><span class="line">更改所有匹配项【默认情况下，update()方法是更新单个文档。 要更新多个文档，请使用开启update()方法中的multi选项】。</span><br><span class="line">db.student.update(&#123;&quot;sex&quot;:&quot;男&quot;&#125;,&#123;$set:&#123;&quot;age&quot;:33&#125;&#125;,&#123;multi: true&#125;);</span><br><span class="line">完整替换，不出现$set关键字了：</span><br><span class="line">db.student.update(&#123;&quot;name&quot;:&quot;小明&quot;&#125;,&#123;&quot;name&quot;:&quot;大明&quot;,&quot;age&quot;:16&#125;);</span><br></pre></td></tr></table></figure>
-
-<h3 id="查找数据"><a href="#查找数据" class="headerlink" title="查找数据"></a>查找数据</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1、查询所有记录 </span><br><span class="line">db.collections.find();</span><br><span class="line">2、查询去掉后的当前聚集集合中的某列的重复数据 </span><br><span class="line">db.collections.distinct(&quot;name&quot;);</span><br><span class="line">3、查询 age &#x3D; 22 的记录 </span><br><span class="line">db.collections.find(&#123;age:22&#125;);</span><br><span class="line">4、查询 age &gt; 22 的记录</span><br><span class="line">db.collections.find(&#123;age:&#123;$gt:22&#125;&#125;);</span><br><span class="line">5、查询 age &lt; 22 的记录</span><br><span class="line">db.collections.find(&#123;age:&#123;$lt:22&#125;&#125;);</span><br><span class="line">6、查询 age &gt;&#x3D; 25 的记录 </span><br><span class="line">db.collections.find(&#123;age:&#123;$gte:22&#125;&#125;);</span><br><span class="line">7、查询 age &lt;&#x3D; 25 的记录 </span><br><span class="line">db.collections.find(&#123;age:&#123;$lte:25&#125;&#125;);</span><br><span class="line">8、查询 age &gt;&#x3D; 23 并且 age &lt;&#x3D; 26</span><br><span class="line">db.collections.find(&#123;age: &#123;$gte: 23, $lte: 26&#125;&#125;); </span><br><span class="line">9、查询 name 中包含 mongo 的数据       模糊查询用于搜索 </span><br><span class="line">db.userInfo.find(&#123;name: &#x2F;mongo&#x2F;&#125;); </span><br><span class="line">10、查询 name 中以 mongo 开头的 </span><br><span class="line">db.userInfo.find(&#123;name: &#x2F;^mongo&#x2F;&#125;); </span><br><span class="line">11、查询指定列 name、age 数据 </span><br><span class="line">db.userInfo.find(&#123;&#125;, &#123;name: 1, age: 1&#125;); </span><br><span class="line">12、查询指定列 name、age 数据, age &gt; 25 </span><br><span class="line">db.userInfo.find(&#123;age: &#123;$gt: 25&#125;&#125;, &#123;name: 1, age: 1&#125;); </span><br><span class="line">13、按照年龄排序    1 升序    -1 降序 </span><br><span class="line">升序：db.userInfo.find().sort(&#123;age: 1&#125;); </span><br><span class="line">降序：db.userInfo.find().sort(&#123;age: -1&#125;); </span><br><span class="line">14、查询 name &#x3D; zhangsan, age &#x3D; 22 的数据 </span><br><span class="line">db.userInfo.find(&#123;name: &#39;zhangsan&#39;, age: 22&#125;); </span><br><span class="line">15、查询前 5 条数据 </span><br><span class="line">db.userInfo.find().limit(5); </span><br><span class="line">16、查询 10 条以后的数据 </span><br><span class="line">db.userInfo.find().skip(10); </span><br><span class="line">17、查询在 5-10 之间的数据 </span><br><span class="line">db.userInfo.find().limit(10).skip(5); </span><br><span class="line">18、or 与 查询 </span><br><span class="line">db.userInfo.find(&#123;$or: [&#123;age: 22&#125;, &#123;age: 25&#125;]&#125;); </span><br><span class="line">19、findOne 查询第一条数据 </span><br><span class="line">db.userInfo.findOne(); </span><br><span class="line">20、查询某个结果集的记录条数   统计数量 </span><br><span class="line">db.userInfo.find(&#123;age: &#123;$gte: 25&#125;&#125;).count(); </span><br><span class="line">如果要返回限制之后的记录数量，要使用 count(true)或者 count(非 0)  </span><br><span class="line">db.users.find().skip(10).limit(5).count(true);</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>Mongodb web</category>
-      </categories>
-      <tags>
-        <tag>web</tag>
-        <tag>Mongodb</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Mongodb数据库索引、explain使用</title>
-    <url>/2020/06/06/Mongodb%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B4%A2%E5%BC%95%E3%80%81explain%E4%BD%BF%E7%94%A8/</url>
-    <content><![CDATA[<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
-<h2 id="Mongodb索引及explain使用-作用：在数据库查询数据速度更快"><a href="#Mongodb索引及explain使用-作用：在数据库查询数据速度更快" class="headerlink" title="Mongodb索引及explain使用 作用：在数据库查询数据速度更快"></a>Mongodb索引及explain使用 作用：在数据库查询数据速度更快</h2><h3 id="获取当前集合的索引"><a href="#获取当前集合的索引" class="headerlink" title="获取当前集合的索引"></a>获取当前集合的索引</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">db.collections.getIndexes()</span><br></pre></td></tr></table></figure>
-
-<h3 id="为当前集合对象创建索引的命令"><a href="#为当前集合对象创建索引的命令" class="headerlink" title="为当前集合对象创建索引的命令"></a>为当前集合对象创建索引的命令</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">db.collections.ensureIndex(&#123;name:1&#125;)</span><br></pre></td></tr></table></figure>
-
-<h3 id="删除当前集合对象索引的命令"><a href="#删除当前集合对象索引的命令" class="headerlink" title="删除当前集合对象索引的命令"></a>删除当前集合对象索引的命令</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">db.collections.dropIndex(&#123;name:1&#125;)</span><br></pre></td></tr></table></figure>
-
-<h3 id="使用explain-executionStats查询具体的-查询时间"><a href="#使用explain-executionStats查询具体的-查询时间" class="headerlink" title="使用explain executionStats查询具体的 查询时间"></a>使用explain executionStats查询具体的 查询时间</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">db.collections.find().explain(&quot;executionStats&quot;)</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>Mongodb web</category>
-      </categories>
-      <tags>
-        <tag>web</tag>
-        <tag>Mongodb</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>es5、es6、类、继承、单例模式</title>
-    <url>/2019/12/12/git%E6%95%99%E7%A8%8B/</url>
-    <content><![CDATA[<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
-<h2 id="git基本使用命令"><a href="#git基本使用命令" class="headerlink" title="git基本使用命令"></a>git基本使用命令</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git clone &#39;项目地址&#39; 从远端拉取项目代码</span><br><span class="line">git remote -v 查看远程仓库信息</span><br><span class="line">git switch -c &lt;branch-name&gt; 创建并切换新分支</span><br><span class="line">git switch master 切换到主分支</span><br><span class="line">git merge &lt;branch-name&gt; 合并指定分支到当前分支</span><br><span class="line">git branch -d &lt;branch-name&gt; 删除指定分支</span><br><span class="line">git branch -D &lt;branch-name&gt; 删除一个未合并的分支</span><br><span class="line">git branch 查看分支信息</span><br><span class="line"></span><br><span class="line">git reset --hard &lt;commit-id&gt; 回退到指定版本</span><br><span class="line">git log 查看提交历史,以便确定回退到哪个版本</span><br><span class="line">git reflog 查看历史命令,以便确定回退到哪个版本</span><br><span class="line"></span><br><span class="line">git checkout -- &lt;file-name&gt; 改错了某个文件,丢弃工作区修改</span><br><span class="line">git rm &lt;file-name&gt; 删除文件</span><br><span class="line"></span><br><span class="line">git pull 从远端仓库拉取最新代码</span><br><span class="line">git add . 添加修改文件到暂存区</span><br><span class="line">git commit -m &lt;修改内容说明&gt; 提交修改文件到本地分支</span><br><span class="line">git push orgin &lt;branch-name&gt; 推送代码远端仓库</span><br><span class="line"></span><br><span class="line">git tag &lt;tag-name&gt; 新建一个标签</span><br><span class="line">git tag 查看所有标签</span><br><span class="line">git push origin &lt;tag-name&gt; 推送本地分支</span><br><span class="line">git push origin --tags 推送全部未推送的标签</span><br><span class="line">git tag -d &lt;tag-name&gt; 删除一个本地标签</span><br><span class="line">git push origin :refs&#x2F;tags&#x2F;&lt;tag-name&gt; 删除一个远程标签</span><br><span class="line"></span><br><span class="line">如果推送失败，先用git pull抓取远程的新提交;</span><br><span class="line">在本地创建和远程分支对应的分支，使用git switch -c &lt;branch-name&gt; origin&#x2F;branch-name，本地和远程分支的名称最好一致;</span><br><span class="line">建立本地分支和远程分支的关联，使用git branch --set-upstream branch-name origin&#x2F;branch-name;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>git</category>
-      </categories>
-      <tags>
-        <tag>git</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>hexo使用vscode编写乱码记录</title>
-    <url>/2020/06/05/hexo%E4%BD%BF%E7%94%A8vscode%E7%BC%96%E5%86%99%E4%B9%B1%E7%A0%81%E8%AE%B0%E5%BD%95/</url>
-    <content><![CDATA[<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
-<h2 id="前两天使用hexo记录一篇博客，打开后出现乱码的问题，记录下解决方法。"><a href="#前两天使用hexo记录一篇博客，打开后出现乱码的问题，记录下解决方法。" class="headerlink" title="前两天使用hexo记录一篇博客，打开后出现乱码的问题，记录下解决方法。"></a>前两天使用hexo记录一篇博客，打开后出现乱码的问题，记录下解决方法。</h2><ol>
-<li>将文件目录下的 _config.yml 保存为utf-8格式(或者unicode格式)</li>
-<li>将 新添加的md文件也保存为utf-8 格式(或者Unicode 格式)</li>
-<li>重新启动hexo clean &amp;&amp; hexo generate &amp;&amp; hexo s</li>
-</ol>
-]]></content>
-      <categories>
-        <category>hexo, vscode</category>
-      </categories>
-      <tags>
-        <tag>hexo</tag>
-        <tag>vscode</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>learn-markdown</title>
     <url>/2020/05/15/learn-markdown/</url>
     <content><![CDATA[<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>Markdown是一种纯文本格式的标记语言。通过简单的标记语法，它可以使普通文本内容具有一定的格式。</p>
@@ -201,6 +188,23 @@
         <tag>markdown</tag>
         <tag>学习</tag>
         <tag>个人博客</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>自定义nodeJs脚手架相关配置</title>
+    <url>/2020/06/15/%E8%87%AA%E5%AE%9A%E4%B9%89nodeJs%E8%84%9A%E6%89%8B%E6%9E%B6%E7%9B%B8%E5%85%B3%E9%85%8D%E7%BD%AE/</url>
+    <content><![CDATA[<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+<h2 id="自定义nodeJs脚手架相关配置"><a href="#自定义nodeJs脚手架相关配置" class="headerlink" title="自定义nodeJs脚手架相关配置"></a>自定义nodeJs脚手架相关配置</h2><p>代码地址：<a href="https://github.com/zjiafeng/userinfo/tree/master/nodeJs/14koa_cli" target="_blank" rel="noopener">https://github.com/zjiafeng/userinfo/tree/master/nodeJs/14koa_cli</a></p>
+<h3 id="1、引入所需模块-模块版本默认最新-cnpm-isntall"><a href="#1、引入所需模块-模块版本默认最新-cnpm-isntall" class="headerlink" title="1、引入所需模块(模块版本默认最新) cnpm isntall"></a>1、引入所需模块(模块版本默认最新) cnpm isntall</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&quot;art-template&quot;: &quot;^4.13.2&quot;,</span><br><span class="line">&quot;koa&quot;: &quot;^2.12.0&quot;,</span><br><span class="line">&quot;koa-art-template&quot;: &quot;^1.1.1&quot;,</span><br><span class="line">&quot;koa-bodyparser&quot;: &quot;^4.3.0&quot;,</span><br><span class="line">&quot;koa-router&quot;: &quot;^9.0.1&quot;,</span><br><span class="line">&quot;koa-session&quot;: &quot;^6.0.0&quot;,</span><br><span class="line">&quot;koa-static&quot;: &quot;^5.0.0&quot;,</span><br><span class="line">&quot;md5&quot;: &quot;^2.2.1&quot;,</span><br><span class="line">&quot;mongodb&quot;: &quot;^3.5.9&quot;,</span><br><span class="line">&quot;svg-captcha&quot;: &quot;^1.4.0&quot;</span><br></pre></td></tr></table></figure>
+
+<h3 id="2、新建入口文件-配置各个模块"><a href="#2、新建入口文件-配置各个模块" class="headerlink" title="2、新建入口文件 配置各个模块"></a>2、新建入口文件 配置各个模块</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;**引入所需模块 *&#x2F;</span><br><span class="line">const Koa &#x3D; require(&#39;koa&#39;),</span><br><span class="line">    Router &#x3D; require(&#39;koa-router&#39;),</span><br><span class="line">    render &#x3D; require(&#39;koa-art-template&#39;),</span><br><span class="line">    path &#x3D; require(&#39;path&#39;),</span><br><span class="line">    svgCaptcha &#x3D; require(&#39;svg-captcha&#39;),</span><br><span class="line">    session &#x3D; require(&#39;koa-session&#39;),</span><br><span class="line">    bodyParser &#x3D; require(&#39;koa-bodyparser&#39;),</span><br><span class="line">    serve &#x3D; require(&#39;koa-static&#39;);</span><br><span class="line"></span><br><span class="line">&#x2F;**实例化 *&#x2F;</span><br><span class="line">const app &#x3D; new Koa();</span><br><span class="line">const router &#x3D; new Router();</span><br><span class="line"></span><br><span class="line">const CONFIG &#x3D; &#123; &#x2F;&#x2F;配置session参数</span><br><span class="line">    key: &#39;koa.sess&#39;, &#x2F;** 默认*&#x2F;</span><br><span class="line">    maxAge: 864000, &#x2F;** cookie过期时间 *&#x2F;</span><br><span class="line">    autoCommit: true, &#x2F;** (boolean) automatically commit headers (default true) *&#x2F;</span><br><span class="line">    overwrite: true, &#x2F;** (boolean) can overwrite or not (default true) *&#x2F;</span><br><span class="line">    httpOnly: true, &#x2F;** (boolean) httpOnly or not (default true) *&#x2F;</span><br><span class="line">    signed: true, &#x2F;** (boolean) signed or not (default true) *&#x2F;</span><br><span class="line">    rolling: true, &#x2F;** 在每次请求时强行设置 cookie，这将重置 cookie 过期时间（默认：false） *&#x2F;</span><br><span class="line">    renew: false, &#x2F;** (boolean) renew session when session is nearly expired, so we can always keep user logged in. (default is false)*&#x2F;</span><br><span class="line">    secure: false, &#x2F;** 设置为true，则只应通过被 HTTPS 协议加密过的请求发送给服务端 (boolean) secure cookie*&#x2F;</span><br><span class="line">    sameSite: null, &#x2F;** (string) session cookie sameSite options (default null, don&#39;t set it) *&#x2F;</span><br><span class="line">&#125;;</span><br><span class="line">&#x2F;&#x2F; 配置koa-art-template 模板引擎</span><br><span class="line">render(app, &#123;</span><br><span class="line">    root: path.join(__dirname, &#39;views&#39;), &#x2F;&#x2F; 模板引擎位置</span><br><span class="line">    extname: &#39;.html&#39;, &#x2F;&#x2F; 文件后缀名</span><br><span class="line">    debug: process.env.NODE_ENV !&#x3D;&#x3D; &#39;production&#39; &#x2F;&#x2F;是否开启调试模式</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;引入子模块</span><br><span class="line">var admin&#x3D;require(&#39;.&#x2F;routes&#x2F;admin.js&#39;);</span><br><span class="line">var api&#x3D;require(&#39;.&#x2F;routes&#x2F;api.js&#39;);</span><br><span class="line">var index&#x3D;require(&#39;.&#x2F;routes&#x2F;index.js&#39;);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;配置路由</span><br><span class="line">router.use(&#39;&#x2F;admin&#39;,admin);</span><br><span class="line">router.use(&#39;&#x2F;api&#39;,api);   &#x2F;*在模块里面暴露路由并且启动路由*&#x2F;</span><br><span class="line">router.use(index);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 路由中间件 (拦截)</span><br><span class="line">app.use(async (ctx, next) &#x3D;&gt; &#123;</span><br><span class="line">    await next();</span><br><span class="line">    if (ctx.status &#x3D;&#x3D; 404) &#123;</span><br><span class="line">        ctx.body &#x3D; &#39;这是个404页面&#39;</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">        &#x2F;&#x2F; console.log(ctx.url)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">app.use(bodyParser()); &#x2F;&#x2F; 必须放到启动路由前调用</span><br><span class="line">app.use(serve(__dirname + &#39;&#x2F;public&#39;)); &#x2F;&#x2F;启动koa-static</span><br><span class="line">app.keys &#x3D; [&#39;some secret hurr&#39;]; &#x2F;**作为cookies签名时的秘钥*&#x2F;</span><br><span class="line">app.use(session(CONFIG, app)); &#x2F;&#x2F;启动session</span><br><span class="line">app.use(router.routes()).use(router.allowedMethods()); &#x2F;&#x2F;启动路由 必须放在其他模块后</span><br><span class="line">app.listen(3000);</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>nodeJs web</category>
+      </categories>
+      <tags>
+        <tag>web</tag>
+        <tag>nodeJs</tag>
       </tags>
   </entry>
   <entry>
@@ -274,20 +278,16 @@
       </tags>
   </entry>
   <entry>
-    <title>自定义nodeJs脚手架相关配置</title>
-    <url>/2020/06/15/%E8%87%AA%E5%AE%9A%E4%B9%89nodeJs%E8%84%9A%E6%89%8B%E6%9E%B6%E7%9B%B8%E5%85%B3%E9%85%8D%E7%BD%AE/</url>
+    <title>git基本使用命令</title>
+    <url>/2019/12/12/git%E6%95%99%E7%A8%8B/</url>
     <content><![CDATA[<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
-<h2 id="自定义nodeJs脚手架相关配置"><a href="#自定义nodeJs脚手架相关配置" class="headerlink" title="自定义nodeJs脚手架相关配置"></a>自定义nodeJs脚手架相关配置</h2><p>代码地址：<a href="https://github.com/zjiafeng/userinfo/tree/master/nodeJs/14koa_cli" target="_blank" rel="noopener">https://github.com/zjiafeng/userinfo/tree/master/nodeJs/14koa_cli</a></p>
-<h3 id="1、引入所需模块-模块版本默认最新-cnpm-isntall"><a href="#1、引入所需模块-模块版本默认最新-cnpm-isntall" class="headerlink" title="1、引入所需模块(模块版本默认最新) cnpm isntall"></a>1、引入所需模块(模块版本默认最新) cnpm isntall</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&quot;art-template&quot;: &quot;^4.13.2&quot;,</span><br><span class="line">&quot;koa&quot;: &quot;^2.12.0&quot;,</span><br><span class="line">&quot;koa-art-template&quot;: &quot;^1.1.1&quot;,</span><br><span class="line">&quot;koa-bodyparser&quot;: &quot;^4.3.0&quot;,</span><br><span class="line">&quot;koa-router&quot;: &quot;^9.0.1&quot;,</span><br><span class="line">&quot;koa-session&quot;: &quot;^6.0.0&quot;,</span><br><span class="line">&quot;koa-static&quot;: &quot;^5.0.0&quot;,</span><br><span class="line">&quot;md5&quot;: &quot;^2.2.1&quot;,</span><br><span class="line">&quot;mongodb&quot;: &quot;^3.5.9&quot;,</span><br><span class="line">&quot;svg-captcha&quot;: &quot;^1.4.0&quot;</span><br></pre></td></tr></table></figure>
-
-<h3 id="2、新建入口文件-配置各个模块"><a href="#2、新建入口文件-配置各个模块" class="headerlink" title="2、新建入口文件 配置各个模块"></a>2、新建入口文件 配置各个模块</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;**引入所需模块 *&#x2F;</span><br><span class="line">const Koa &#x3D; require(&#39;koa&#39;),</span><br><span class="line">    Router &#x3D; require(&#39;koa-router&#39;),</span><br><span class="line">    render &#x3D; require(&#39;koa-art-template&#39;),</span><br><span class="line">    path &#x3D; require(&#39;path&#39;),</span><br><span class="line">    svgCaptcha &#x3D; require(&#39;svg-captcha&#39;),</span><br><span class="line">    session &#x3D; require(&#39;koa-session&#39;),</span><br><span class="line">    bodyParser &#x3D; require(&#39;koa-bodyparser&#39;),</span><br><span class="line">    serve &#x3D; require(&#39;koa-static&#39;);</span><br><span class="line"></span><br><span class="line">&#x2F;**实例化 *&#x2F;</span><br><span class="line">const app &#x3D; new Koa();</span><br><span class="line">const router &#x3D; new Router();</span><br><span class="line"></span><br><span class="line">const CONFIG &#x3D; &#123; &#x2F;&#x2F;配置session参数</span><br><span class="line">    key: &#39;koa.sess&#39;, &#x2F;** 默认*&#x2F;</span><br><span class="line">    maxAge: 864000, &#x2F;** cookie过期时间 *&#x2F;</span><br><span class="line">    autoCommit: true, &#x2F;** (boolean) automatically commit headers (default true) *&#x2F;</span><br><span class="line">    overwrite: true, &#x2F;** (boolean) can overwrite or not (default true) *&#x2F;</span><br><span class="line">    httpOnly: true, &#x2F;** (boolean) httpOnly or not (default true) *&#x2F;</span><br><span class="line">    signed: true, &#x2F;** (boolean) signed or not (default true) *&#x2F;</span><br><span class="line">    rolling: true, &#x2F;** 在每次请求时强行设置 cookie，这将重置 cookie 过期时间（默认：false） *&#x2F;</span><br><span class="line">    renew: false, &#x2F;** (boolean) renew session when session is nearly expired, so we can always keep user logged in. (default is false)*&#x2F;</span><br><span class="line">    secure: false, &#x2F;** 设置为true，则只应通过被 HTTPS 协议加密过的请求发送给服务端 (boolean) secure cookie*&#x2F;</span><br><span class="line">    sameSite: null, &#x2F;** (string) session cookie sameSite options (default null, don&#39;t set it) *&#x2F;</span><br><span class="line">&#125;;</span><br><span class="line">&#x2F;&#x2F; 配置koa-art-template 模板引擎</span><br><span class="line">render(app, &#123;</span><br><span class="line">    root: path.join(__dirname, &#39;views&#39;), &#x2F;&#x2F; 模板引擎位置</span><br><span class="line">    extname: &#39;.html&#39;, &#x2F;&#x2F; 文件后缀名</span><br><span class="line">    debug: process.env.NODE_ENV !&#x3D;&#x3D; &#39;production&#39; &#x2F;&#x2F;是否开启调试模式</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;引入子模块</span><br><span class="line">var admin&#x3D;require(&#39;.&#x2F;routes&#x2F;admin.js&#39;);</span><br><span class="line">var api&#x3D;require(&#39;.&#x2F;routes&#x2F;api.js&#39;);</span><br><span class="line">var index&#x3D;require(&#39;.&#x2F;routes&#x2F;index.js&#39;);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;配置路由</span><br><span class="line">router.use(&#39;&#x2F;admin&#39;,admin);</span><br><span class="line">router.use(&#39;&#x2F;api&#39;,api);   &#x2F;*在模块里面暴露路由并且启动路由*&#x2F;</span><br><span class="line">router.use(index);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 路由中间件 (拦截)</span><br><span class="line">app.use(async (ctx, next) &#x3D;&gt; &#123;</span><br><span class="line">    await next();</span><br><span class="line">    if (ctx.status &#x3D;&#x3D; 404) &#123;</span><br><span class="line">        ctx.body &#x3D; &#39;这是个404页面&#39;</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">        &#x2F;&#x2F; console.log(ctx.url)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">app.use(bodyParser()); &#x2F;&#x2F; 必须放到启动路由前调用</span><br><span class="line">app.use(serve(__dirname + &#39;&#x2F;public&#39;)); &#x2F;&#x2F;启动koa-static</span><br><span class="line">app.keys &#x3D; [&#39;some secret hurr&#39;]; &#x2F;**作为cookies签名时的秘钥*&#x2F;</span><br><span class="line">app.use(session(CONFIG, app)); &#x2F;&#x2F;启动session</span><br><span class="line">app.use(router.routes()).use(router.allowedMethods()); &#x2F;&#x2F;启动路由 必须放在其他模块后</span><br><span class="line">app.listen(3000);</span><br></pre></td></tr></table></figure>
+<h2 id="git基本使用命令"><a href="#git基本使用命令" class="headerlink" title="git基本使用命令"></a>git基本使用命令</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git clone &#39;项目地址&#39; 从远端拉取项目代码</span><br><span class="line">git remote -v 查看远程仓库信息</span><br><span class="line">git switch -c &lt;branch-name&gt; 创建并切换新分支</span><br><span class="line">git switch master 切换到主分支</span><br><span class="line">git merge &lt;branch-name&gt; 合并指定分支到当前分支</span><br><span class="line">git branch -d &lt;branch-name&gt; 删除指定分支</span><br><span class="line">git branch -D &lt;branch-name&gt; 删除一个未合并的分支</span><br><span class="line">git branch 查看分支信息</span><br><span class="line"></span><br><span class="line">git reset --hard &lt;commit-id&gt; 回退到指定版本</span><br><span class="line">git log 查看提交历史,以便确定回退到哪个版本</span><br><span class="line">git reflog 查看历史命令,以便确定回退到哪个版本</span><br><span class="line"></span><br><span class="line">git checkout -- &lt;file-name&gt; 改错了某个文件,丢弃工作区修改</span><br><span class="line">git rm &lt;file-name&gt; 删除文件</span><br><span class="line"></span><br><span class="line">git pull 从远端仓库拉取最新代码</span><br><span class="line">git add . 添加修改文件到暂存区</span><br><span class="line">git commit -m &lt;修改内容说明&gt; 提交修改文件到本地分支</span><br><span class="line">git push orgin &lt;branch-name&gt; 推送代码远端仓库</span><br><span class="line"></span><br><span class="line">git tag &lt;tag-name&gt; 新建一个标签</span><br><span class="line">git tag 查看所有标签</span><br><span class="line">git push origin &lt;tag-name&gt; 推送本地分支</span><br><span class="line">git push origin --tags 推送全部未推送的标签</span><br><span class="line">git tag -d &lt;tag-name&gt; 删除一个本地标签</span><br><span class="line">git push origin :refs&#x2F;tags&#x2F;&lt;tag-name&gt; 删除一个远程标签</span><br><span class="line"></span><br><span class="line">如果推送失败，先用git pull抓取远程的新提交;</span><br><span class="line">在本地创建和远程分支对应的分支，使用git switch -c &lt;branch-name&gt; origin&#x2F;branch-name，本地和远程分支的名称最好一致;</span><br><span class="line">建立本地分支和远程分支的关联，使用git branch --set-upstream branch-name origin&#x2F;branch-name;</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
-        <category>nodeJs web</category>
+        <category>git</category>
       </categories>
       <tags>
-        <tag>web</tag>
-        <tag>nodeJs</tag>
+        <tag>git</tag>
       </tags>
   </entry>
 </search>
